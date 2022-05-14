@@ -55,8 +55,6 @@ const useStyles = createUseStyles({
 
 export default defineComponent({
   setup() {
-    const selectedRef: Ref<number> = ref(0)
-
     const demo: {
       schema: Schema | null
       data: any
@@ -73,6 +71,7 @@ export default defineComponent({
       uiSchemaCode: ''
     })
 
+    const selectedRef: Ref<number> = ref(0)
     watchEffect(() => {
       const index = selectedRef.value
       const d = demos[index]
@@ -103,7 +102,6 @@ export default defineComponent({
         // do something
       }
     }
-
     const schemaChange = (v: string) => handleCodeChange('schema', v)
     const dataChange = (v: string) => handleCodeChange('data', v)
     const uiSchemaChange = (v: string) => handleCodeChange('uiSchema', v)
