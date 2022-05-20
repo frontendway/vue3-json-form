@@ -4,7 +4,7 @@ module.exports = {
     node: true,
   },
   extends: [
-    "plugin:vue/vue3-essential",
+    'plugin:vue/vue3-recommended',
     "eslint:recommended",
     "@vue/typescript/recommended"
   ],
@@ -20,7 +20,15 @@ module.exports = {
     "eol-last": ["error", "always"],
     "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
     "array-bracket-spacing": ["error","always"],
-    "object-curly-spacing": ["error","always"]
+    "object-curly-spacing": ["error","always"],
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": {
+        "max": 1
+      },      
+      "multiline": {
+        "max": 1
+      }
+    }]
   },
   overrides: [
     {

@@ -2,7 +2,7 @@ import { defineComponent, reactive, Ref, ref, watchEffect } from "vue"
 import { createUseStyles } from "vue-jss"
 import MonacoEditor from "./components/MonacoEditor"
 import demos from "./demos"
-// import SchemaForm from './lib/index'
+import SchemaForm from '../lib/index'
 
 type Schema = any
 type UISchema = any
@@ -85,10 +85,10 @@ export default defineComponent({
 
     // const methodRef: Ref<any> = ref()
 
-    // const handleChange = (v: any) => {
-    //   demo.data = v
-    //   demo.dataCode = toJson(v)
-    // }
+    const handleChange = (v: any) => {
+      demo.data = v
+      demo.dataCode = toJson(v)
+    }
 
     const handleCodeChange = (
       filed: 'schema' | 'data' | 'uiSchema',
@@ -152,7 +152,11 @@ export default defineComponent({
               </div>
             </div>
             <div class={ classes.form }>
-              {/* <SchemaForm /> */}
+              <SchemaForm 
+                schema={ demo.schema } 
+                onChange={ handleChange } 
+                value={ demo.data } 
+              />
             </div>
           </div>
         </div>
